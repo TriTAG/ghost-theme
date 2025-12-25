@@ -1,0 +1,55 @@
+.tritag-signup-form label {
+    font-size: 1.6rem;
+}
+
+.tritag-signup-form fieldset label {
+    display: initial;
+}
+
+.tritag-signup-form .field-container {
+    margin-bottom: 2rem;
+}
+
+.tritag-signup-form .field-label-container {
+    padding-bottom: 0.5em;
+}
+
+.tritag-signup-form .signup-btn {
+    position: relative;
+    letter-spacing: 0.2px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 80px;
+    height: 44px;
+    padding: 0 1.8rem;
+    border-radius: 6px;
+    transition: all .25s ease;
+    box-shadow: none;
+    user-select: none;
+}
+
+.tritag-signup-form .signup-btn:hover {
+    border-color: var(--grey10);
+}
+
+.tritag-signup-form .description {
+    font-weight: 400;
+    margin-left: 25px;
+}
+
+.tritag-signup-form fieldset.newsletters > div {
+    margin: 1rem 0;
+}
+.tritag-signup-form fieldset.location > div {
+    margin: 0.3rem 0;
+}
+
+.tritag-signup-form .signin-pointer {
+    margin: 2rem 0;
+}
+
+@media (min-width: 600px) {
+    .tritag-signup-form input:not(.radio) {
+        width: 60%;
+    }
+}

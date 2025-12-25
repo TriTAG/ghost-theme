@@ -1,0 +1,94 @@
+{{!< default }}
+
+<div class="gh-canvas">
+<div class="p-inner gh-content">
+<form data-members-form="subscribe" class="tritag-signup-form">
+    <header><h1 >{{@site.title}}</h1></header>
+    <section class="gh-portal-signup">
+        <div class="signin-pointer">
+          <p>Already have an account? <a href="/#/portal/signin">Sign in</a></p>
+        </div>
+
+        <div>
+            <section class="field-container">
+                <div class="field-label-container"><label for="input-name" class="input-label"> Name </label></div>
+                <input data-test-input="input-name" id="input-name" type="text" name="name" placeholder="Jamie Larson" tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="" aria-label="Name" value="">
+            </section>
+            <section class="field-container">
+                <div class="field-label-container"><label for="input-email" class="input-label"> Email </label></div>
+                <input data-test-input="input-email" id="input-email" type="email" name="email" placeholder="jamie@example.com" tabindex="2" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Email" value="">
+            </section>
+
+            <fieldset class="location field-container">
+              <legend>Select your city or township:</legend>
+
+              <div>
+                <input class="radio" type="radio" id="kitchener" name="city" value="Kitchener"/>
+                <label for="kitchener">City of Kichener</label>
+              </div>
+
+              <div>
+                <input class="radio" type="radio" id="waterloo" name="city" value="Waterloo"/>
+                <label for="waterloo">City of Waterloo</label>
+              </div>
+
+              <div>
+                <input class="radio" type="radio" id="cambridge" name="city" value="Cambridge"/>
+                <label for="cambridge">City of Cambridge</label>
+              </div>
+
+              <div>
+                <input class="radio" type="radio" id="north-dumfries" name="city" value="North Dumfries"/>
+                <label for="north-dumfries">North Dumfries</label>
+              </div>
+
+              <div>
+                <input class="radio" type="radio" id="wellesley" name="city" value="Wellesley"/>
+                <label for="wellesley">Wellesley</label>
+              </div>
+
+              <div>
+                <input class="radio" type="radio" id="wilmot" name="city" value="Wilmot"/>
+                <label for="Wilmot">Wilmot</label>
+              </div>
+
+              <div>
+                <input class="radio" type="radio" id="woolwich" name="city" value="Woolwich"/>
+                <label for="woolwich">Woolwich</label>
+              </div>
+
+              <div>
+                <input class="radio" type="radio" id="external" name="city" value="external-to-wr"/>
+                <label for="external">I don't live in Waterloo Region</label>
+              </div>
+        </fieldset>
+
+        <fieldset class="newsletters field-container">
+          <legend>Which newsletters would you like to subscribe to?</legend>
+          {{#get "newsletters"}}
+              {{#foreach newsletters}}
+                <div>
+
+                <label>
+                  <input class="radio" type="checkbox" value="{{name}}" data-members-newsletter />
+                  <span>{{name}}</span>
+                  <p class="description">{{description}}</p>
+                </label>
+
+                </div>
+              {{/foreach}}
+          {{/get}}
+        </fieldset>
+        </div>
+        <div>
+            <button class="signup-btn" style="color: rgb(255, 255, 255); background-color: rgb(0, 108, 183); opacity: 1; pointer-events: auto; width: 100%;" type="submit" tabindex="3">Sign up</button>
+        </div>
+        <div class="signin-pointer">
+          <p>Already have an account? <a href="/#/portal/signin">Sign in</a></p>
+        </div>
+
+    </section>
+</form>
+
+</div>
+</div>
