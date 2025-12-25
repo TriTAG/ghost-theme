@@ -48,6 +48,15 @@
     {{/match}}
 
     <div class="single-content gh-content gh-canvas">
+        {{#is "post"}}
+        {{#if @custom.show_author}}
+        {{! TODO: add commas between authors }}
+        <div>
+            <p><small>By {{#foreach authors}}<strong>{{name}}</strong>{{/foreach}}</small></p>
+        </div>
+        {{/if}}
+        {{/is}}
+
         {{content}}
     </div>
 
@@ -66,24 +75,9 @@
         </div>
 
         <div class="single-footer-middle">
-            {{#if @custom.show_author}}
-            <div class="single-footer-top">
-                <h3 class="single-footer-title">Published by:</h3>
-                <div class="author-list">
-                    {{#foreach authors}}
-                        <div class="author-image-placeholder u-placeholder square">
-                            <a href="{{url}}" title="{{name}}">
-                                {{#if profile_image}}
-                                    <img class="author-image u-object-fit" src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy">
-                                {{else}}
-                                    <span class="u-object-fit">{{> "icons/avatar"}}</span>
-                                {{/if}}
-                            </a>
-                        </div>
-                    {{/foreach}}
-                </div>
+            <div class="gh-content" style="margin-top: 0">
+              <p><small>This page is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small></p>
             </div>
-            {{/if}}
         </div>
 
         <div class="single-footer-right">
