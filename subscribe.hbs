@@ -2,21 +2,24 @@
 
 <div class="gh-canvas">
 <div class="p-inner gh-content">
+
+{{#unless @member}}
+
 <form data-members-form="subscribe" class="tritag-signup-form">
     <header><h1 >{{@site.title}}</h1></header>
-    <section class="gh-portal-signup">
+    <section>
         <div class="signin-pointer">
-          <p>Already have an account? <a href="/#/portal/signin">Sign in</a></p>
+          <p>Already have an account? <a href="/#/portal/signin">Sign in with your email</a></p>
         </div>
 
         <div>
             <section class="field-container">
                 <div class="field-label-container"><label for="input-name" class="input-label"> Name </label></div>
-                <input data-test-input="input-name" id="input-name" type="text" name="name" placeholder="Jamie Larson" tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="" aria-label="Name" value="">
+                <input data-members-name id="input-name" type="text" name="name" placeholder="Jamie Larson" tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="" aria-label="Name" value="">
             </section>
             <section class="field-container">
                 <div class="field-label-container"><label for="input-email" class="input-label"> Email </label></div>
-                <input data-test-input="input-email" id="input-email" type="email" name="email" placeholder="jamie@example.com" tabindex="2" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Email" value="">
+                <input data-members-email id="input-email" type="email" name="email" placeholder="jamie@example.com" tabindex="2" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Email" value="">
             </section>
 
             <fieldset class="location field-container">
@@ -58,37 +61,58 @@
               </div>
 
               <div>
-                <input class="radio" type="radio" id="external" name="city" value="external-to-wr"/>
-                <label for="external">I don't live in Waterloo Region</label>
+                <input class="radio" type="radio" id="external" name="city" value="Non-WR Resident"/>
+                <label for="external"><span style="color: var(--ghost-accent-color)">I don't live in Waterloo Region</span></label>
               </div>
-        </fieldset>
+            </fieldset>
 
-        <fieldset class="newsletters field-container">
-          <legend>Which newsletters would you like to subscribe to?</legend>
-          {{#get "newsletters"}}
-              {{#foreach newsletters}}
-                <div>
+            <fieldset class="newsletters field-container">
+              <legend>Which newsletters would you like to subscribe to?</legend>
+              {{#get "newsletters"}}
+                  {{#foreach newsletters}}
+                    <div>
 
-                <label>
-                  <input class="radio" type="checkbox" value="{{name}}" data-members-newsletter />
-                  <span>{{name}}</span>
-                  <p class="description">{{description}}</p>
-                </label>
+                    <label>
+                      <input class="radio" type="checkbox" value="{{name}}" onChange="this.toggleAttribute('data-members-newsletter')"/>
+                      <span>{{name}}</span>
+                      <p class="description">{{description}}</p>
+                    </label>
 
-                </div>
-              {{/foreach}}
-          {{/get}}
-        </fieldset>
+                    </div>
+                  {{/foreach}}
+              {{/get}}
+            </fieldset>
+            <button class="signup-btn" style="color: white; background-color: var(--ghost-accent-color); width: 100%;" type="submit" tabindex="3">Subscribe</button>
         </div>
-        <div>
-            <button class="signup-btn" style="color: rgb(255, 255, 255); background-color: rgb(0, 108, 183); opacity: 1; pointer-events: auto; width: 100%;" type="submit" tabindex="3">Sign up</button>
+
+        <div class="status">
+            <p class="loading">Processing, please wait.</p>
+            <p class="error">Something's gone wrong.</p>
+            <p class="success">Success! Check your inbox for an email.</p>
         </div>
+        <p data-members-error></p>
         <div class="signin-pointer">
-          <p>Already have an account? <a href="/#/portal/signin">Sign in</a></p>
+          <p>Already have an account? <a href="/#/portal/signin">Sign in with your email</a></p>
         </div>
 
     </section>
 </form>
+
+<script>
+const locationInputs = document.querySelectorAll("fieldset.location input");
+locationInputs.forEach((e) => {
+  e.addEventListener("input", (e) => {
+    // Remove existing label data attributes.
+    locationInputs.forEach((inp) => inp.removeAttribute("data-members-label"))
+    // Add the right label.
+    e.srcElement.setAttribute("data-members-label", "");
+  });
+});
+</script>
+
+{{else}}
+    <p>You're already signed in, you can <a href="#/portal/account" data-portal="account"> manage your subscription</a>.</p>
+{{/unless}}
 
 </div>
 </div>

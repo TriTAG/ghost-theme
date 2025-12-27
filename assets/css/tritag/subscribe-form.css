@@ -53,3 +53,12 @@
         width: 60%;
     }
 }
+
+form :where(.loading, .success, .error) {
+    display: none;
+}
+form.loading .loading, form.success .success, form.error .error {
+    display: block !important;
+    font-size: x-large;
+    margin-top: 1rem;
+}
