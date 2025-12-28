@@ -1,5 +1,13 @@
 body:not(.with-full-cover) .cover {
-    margin-top: 9vmin;
+    padding-top: 5vmin;
+    padding-bottom: 5vmin;
+    background-color: var(--ghost-accent-color);
+    color: white;
+}
+
+.cover .gh-btn {
+    color: black;
+    background-color: white;
 }
 
 .with-full-cover .cover {
