@@ -108,6 +108,10 @@ locationInputs.forEach((e) => {
     e.srcElement.setAttribute("data-members-label", "");
   });
 });
+// HACK: auto-select the main TriTAG list
+const newsletterInputs = document.querySelectorAll("fieldset.newsletters input");
+newsletterInputs[0].click();
+
 </script>
 
 {{else}}
