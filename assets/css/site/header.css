@@ -20,6 +20,8 @@
     }
 }
 
-.gh-head-logo img {
-    max-height: 65px !important;
+@media (min-width: 767px) {
+    .gh-head-logo img {
+        max-height: 65px !important;
+    }
 }

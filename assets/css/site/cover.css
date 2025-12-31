@@ -1,6 +1,6 @@
 body:not(.with-full-cover) .cover {
-    padding-top: 5vmin;
-    padding-bottom: 5vmin;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     background-color: var(--ghost-accent-color);
     color: white;
 }
