@@ -15,53 +15,53 @@
         <div>
             <section class="field-container">
                 <div class="field-label-container"><label for="input-name" class="input-label"> Name </label></div>
-                <input data-members-name id="input-name" type="text" name="name" placeholder="Jamie Larson" tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="" aria-label="Name" value="">
+                <input data-members-name id="input-name" type="text" name="name" placeholder="Jamie Larson" tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="" aria-label="Name" value="" required>
             </section>
             <section class="field-container">
                 <div class="field-label-container"><label for="input-email" class="input-label"> Email </label></div>
-                <input data-members-email id="input-email" type="email" name="email" placeholder="jamie@example.com" tabindex="2" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Email" value="">
+                <input data-members-email id="input-email" type="email" name="email" placeholder="jamie@example.com" tabindex="2" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Email" value="" required>
             </section>
 
             <fieldset class="location field-container">
               <legend>Select your city or township:</legend>
 
               <div>
-                <input class="radio" type="radio" id="kitchener" name="city" value="Kitchener"/>
+                <input class="radio" type="radio" id="kitchener" name="city" value="Kitchener" required/>
                 <label for="kitchener">City of Kichener</label>
               </div>
 
               <div>
-                <input class="radio" type="radio" id="waterloo" name="city" value="Waterloo"/>
+                <input class="radio" type="radio" id="waterloo" name="city" value="Waterloo" required/>
                 <label for="waterloo">City of Waterloo</label>
               </div>
 
               <div>
-                <input class="radio" type="radio" id="cambridge" name="city" value="Cambridge"/>
+                <input class="radio" type="radio" id="cambridge" name="city" value="Cambridge" required/>
                 <label for="cambridge">City of Cambridge</label>
               </div>
 
               <div>
-                <input class="radio" type="radio" id="north-dumfries" name="city" value="North Dumfries"/>
+                <input class="radio" type="radio" id="north-dumfries" name="city" value="North Dumfries" required/>
                 <label for="north-dumfries">North Dumfries</label>
               </div>
 
               <div>
-                <input class="radio" type="radio" id="wellesley" name="city" value="Wellesley"/>
+                <input class="radio" type="radio" id="wellesley" name="city" value="Wellesley" required/>
                 <label for="wellesley">Wellesley</label>
               </div>
 
               <div>
-                <input class="radio" type="radio" id="wilmot" name="city" value="Wilmot"/>
+                <input class="radio" type="radio" id="wilmot" name="city" value="Wilmot" required/>
                 <label for="Wilmot">Wilmot</label>
               </div>
 
               <div>
-                <input class="radio" type="radio" id="woolwich" name="city" value="Woolwich"/>
+                <input class="radio" type="radio" id="woolwich" name="city" value="Woolwich" required/>
                 <label for="woolwich">Woolwich</label>
               </div>
 
               <div>
-                <input class="radio" type="radio" id="external" name="city" value="Non-WR Resident"/>
+                <input class="radio" type="radio" id="external" name="city" value="Non-WR Resident" required/>
                 <label for="external"><span style="color: var(--ghost-accent-color)">I don't live in Waterloo Region</span></label>
               </div>
             </fieldset>
@@ -108,10 +108,9 @@ locationInputs.forEach((e) => {
     e.srcElement.setAttribute("data-members-label", "");
   });
 });
-// HACK: auto-select the main TriTAG list
+// HACK: auto-select all lists
 const newsletterInputs = document.querySelectorAll("fieldset.newsletters input");
-newsletterInputs[0].click();
-
+newsletterInputs.forEach((e) => e.click());
 </script>
 
 {{else}}
