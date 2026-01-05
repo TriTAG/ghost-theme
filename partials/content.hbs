@@ -46,10 +46,7 @@
     <div class="single-content gh-content gh-canvas">
         {{#is "post"}}
         {{#if @custom.show_author}}
-        {{! TODO: add commas between authors }}
-        <div>
-            <p><small>By {{#foreach authors}}<strong>{{name}}</strong>{{/foreach}}</small></p>
-        </div>
+          <p class="tritag-authors">By {{authors}}</p>
         {{/if}}
         {{/is}}
 
