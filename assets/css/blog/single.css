@@ -129,8 +129,15 @@
     }
 }
 
+/* TriTAG custom start */
 .tritag-authors a {
     text-decoration: none;
     font-weight: bold;
     color: var(--color-primary-text);
+}
+
+.gh-content table:not(.gist table) {
+    background: none;
+    margin-left: auto;
+    margin-right: auto;
 }
